@@ -1,0 +1,34 @@
+[invitations]
+database = sqlite:////data/invitations.sqlite
+
+# email template for invitations
+invite_subject = "Einladung zur Urabstimmung"
+invite_body = "Liebes Mitglied\n\nKlicke den nachfolgenden Link an, um dich fuer die Urabstimmung zu registrieren: %s\n\nLeite diesen Mail an niemanden weiter, denn damit koennte sich diese Person registrieren.\n\nPiratige Gruesse\nDein Urabstimmungssystem"
+invite_url = https://${IDSERVER_ADDRESS}/register/?code=%s
+invite_sign = True
+invite_notify = True
+# required signature for import, receiver for export
+broker = string
+
+registered_subject = "Registrierung erfolgreich"
+registered_body = "Liebes Mitglied\n\nDein Benutzer beim Urabstimmungssystem wurde erfolgreich angelegt..\n\nPiratige Gruesse\nDein Urabstimmungssystem"
+failed_subject = "Registrierung fehlgeschlagen"
+failed_body = "Liebes Mitglied\n\nDeine Registrierung beim Urabstimmungssystem ist fehltgeschlagen. Bitte melde dich unter support@piratenpartei.ch..\n\nPiratige Gruesse\nDein Urabstimmungssystem"
+
+[invitation_api]
+user = ${IDSERVER_API_USER}
+password = ${IDSERVER_API_PASSWORD}
+digest = True
+url = https://${IDSERVER_ADDRESS}/api/v1/backend/invitations/
+
+[smtp]
+host = ${SMTP_SERVER_ADDRESS}
+port = ${SMTP_SERVER_PORT}
+user = ${SMTP_USER}
+password = ${SMTP_PASSWORD}
+
+[gnupg]
+home = /data/gnupg
+sender = ${BACKEND_GPG_ADDRESS}
+passphrase = ${BACKEND_GPG_PASSWORD}
+

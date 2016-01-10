@@ -1,0 +1,21 @@
+[members]
+member_import = 'uuid','email','status','department','verified','registered'
+database = sqlite:////data/members.sqlite
+
+[member_api]
+user = ${IDSERVER_API_USER}
+password = ${IDSERVER_API_PASSWORD}
+digest = True
+url = https://${IDSERVER_ADDRESS}/api/v1/backend/invitations/
+
+[smtp]
+host = ${SMTP_SERVER_ADDRESS}
+port = ${SMTP_SERVER_PORT}
+user = ${SMTP_USER}
+password = ${SMTP_PASSWORD}
+
+[gnupg]
+home = /data/gnupg
+sender = ${BACKEND_GPG_ADDRESS}
+passphrase = ${BACKEND_GPG_PASSWORD}
+
