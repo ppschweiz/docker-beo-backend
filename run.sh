@@ -22,7 +22,8 @@ then
 fi
 
 echo "Exporting members..."
-cd /python-civi && python export_members.py > /tmp/members.csv
+touch /data/memberlist
+cd /python-civi && python export_members.py /data/memberlist > /tmp/members.csv
 
 echo "Departments members..."
 cd /python-civi && python export_departments.py > /tmp/departments.csv

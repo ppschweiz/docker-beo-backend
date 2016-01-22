@@ -2,8 +2,8 @@
 database = sqlite:////data/invitations.sqlite
 
 # email template for invitations
-invite_subject = "Einladung zur Urabstimmung"
-invite_body = "Liebes Mitglied\n\nKlicke den nachfolgenden Link an, um dich fuer die Urabstimmung zu registrieren: %s\n\nLeite diesen Mail an niemanden weiter, denn damit koennte sich diese Person registrieren.\n\nPiratige Gruesse\nDein Urabstimmungssystem"
+invite_subject = "Einladung zum Urabstimmungssystem"
+invite_body = "Liebes Mitglied\n\nKlicke den nachfolgenden Link an, um dich für die Urabstimmung zu registrieren: %s\n\nLeite diesen Mail an niemanden weiter, denn damit könnte sich diese Person registrieren.\n\nPiratige Grüsse\nDein Urabstimmungssystem"
 invite_url = https://${IDSERVER_ADDRESS}/register/?code=%s
 invite_sign = True
 invite_notify = True
