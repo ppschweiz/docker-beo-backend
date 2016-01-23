@@ -18,8 +18,9 @@ failed_body = "Liebes Mitglied\n\nDeine Registrierung beim Urabstimmungssystem i
 [invitation_api]
 user = ${IDSERVER_API_USER}
 password = ${IDSERVER_API_PASSWORD}
-digest = True
 url = https://${IDSERVER_ADDRESS}/api/v1/backend/invitations/
+ca_certs = /data/ca_cert.pem
+cert = /data/client.crt, /data/client.key
 
 [smtp]
 host = ${SMTP_SERVER_ADDRESS}

@@ -43,5 +43,5 @@ env PYTHONPATH=/ekklesia python -m ekklesia.backends.invitations -C /etc/invitat
 echo "Syncing members..."
 env PYTHONPATH=/ekklesia python -m ekklesia.backends.members -C /etc/members.ini sync
 
-#env PYTHONPATH=/ekklesia python -m ekklesia.backends.invitations -C /etc/invitations.ini send
+env PYTHONPATH=/ekklesia python -m ekklesia.backends.invitations -C /etc/invitations.ini send
 
