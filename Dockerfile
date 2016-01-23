@@ -7,7 +7,7 @@ RUN git clone https://github.com/tallus/python-civicrm
 RUN cd python-civicrm && python setup.py install
 RUN git clone https://github.com/edemocracy/ekklesia
 RUN cd ekklesia && make install
-RUN ls
+RUN ls -a
 RUN git clone https://github.com/ppschweiz/python-civi
 COPY run.sh /run.sh
 COPY members.ini.template /etc/members.ini.template
