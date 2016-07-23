@@ -1,4 +1,4 @@
-FROM ubuntu:15.10
+FROM ubuntu:16.04
 
 RUN apt-get update
 RUN apt-get upgrade -y
@@ -9,7 +9,6 @@ RUN git clone https://github.com/edemocracy/ekklesia
 RUN cd ekklesia && make install
 RUN git clone https://github.com/ppschweiz/python-civi
 COPY run.sh /run.sh
-COPY members.ini.template /etc/members.ini.template
-COPY invitations.ini.template /etc/invitations.ini.template
+COPY ekklesia.ini.template /ekklesia.ini.template
 CMD ["/run.sh"]
 
