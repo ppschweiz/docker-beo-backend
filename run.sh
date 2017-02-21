@@ -62,14 +62,10 @@ do
 	echo "Syncing members..."
 	env PYTHONPATH=/ekklesia python -m ekklesia.backends.members -C /data/ekklesia.ini -v sync
 
-	echo "Round finished. Waiting 5 minutes..."
-	sleep 60
-	echo "Waiting 4 minutes..."
-	sleep 60
-	echo "Waiting 3 minutes..."
-	sleep 60
-	echo "Waiting 2 minutes..."
-	sleep 60
-	echo "Waiting 1 minutes..."
-	sleep 60
+	echo "Round finished. Waiting 15 minutes..."
+	sleep 300
+	echo "Waiting 10 minutes..."
+	sleep 300
+	echo "Waiting 5 minutes..."
+	sleep 300
 done
