@@ -11,7 +11,8 @@ passphrase=
 [smtp]
 # send invitation mails with this SMTP account
 host = mail.piratenpartei.ch
-user = televotia-backend@piratenchangemepassword = changeme
+user = televotia-backend@piratenpartei.ch
+password = changeme
 
 
 [member_api]
