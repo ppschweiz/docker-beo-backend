@@ -28,7 +28,7 @@ while :
 do
 	echo "Exporting members..."
 	touch /data/memberlist
-	cd /python-civi && python export_members.py /data/memberlist > /tmp/members.csv
+	cd /python-civi && python export_members.py /data/reset > /tmp/members.csv
 
 	echo "Departments members..."
 	cd /python-civi && python export_departments.py > /tmp/departments.csv

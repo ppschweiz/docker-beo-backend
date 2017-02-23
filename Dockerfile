@@ -7,11 +7,12 @@ RUN apt-get install -y python-pip python-dev build-essential git libtiff5-dev li
 RUN pip install --upgrade pip
 RUN git clone https://github.com/tallus/python-civicrm
 RUN cd python-civicrm && python setup.py install
-RUN echo "B5"
+RUN echo "B6"
 RUN git clone https://github.com/edemocracy/ekklesia
 RUN cd ekklesia && make install
 RUN git clone https://github.com/ppschweiz/python-civi
 COPY run.sh /run.sh
+COPY push.sh /push.sh
 COPY ekklesia.ini.template /ekklesia.ini.template
 CMD ["/run.sh"]
 
