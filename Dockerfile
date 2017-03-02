@@ -11,8 +11,10 @@ RUN echo "B6"
 RUN git clone https://github.com/edemocracy/ekklesia
 RUN cd ekklesia && make install
 RUN git clone https://github.com/ppschweiz/python-civi
+RUN pip install pymysql
 COPY run.sh /run.sh
 COPY push.sh /push.sh
+COPY init.sh /init.sh
 COPY ekklesia.ini.template /ekklesia.ini.template
 CMD ["/run.sh"]
 

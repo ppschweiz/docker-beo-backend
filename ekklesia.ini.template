@@ -31,7 +31,8 @@ sign = true
 [members]
 # DB URI (SQLAlchemy syntax: postgres://<username>:<password>@<host>:<port>/<database_name>)
 #database = 'postgres://members:members@localhost:5433/members'
-database = sqlite:////data//members.sqlite
+#database = sqlite:////data//members.sqlite
+database = mysql+pymysql://beo_backend:secretpassword@localhost/beo_backend_members?charset=utf8
 member_import = uuid,email,status,registered,verified,department
 member_sync = uuid,email,status,registered,department
 
@@ -51,7 +52,8 @@ format = json
 
 [invitations]
 #database = 'postgres://invitations:invitations@localhost:5432/invitations'
-database = sqlite:////data//invitations.sqlite
+#database = sqlite:////data//invitations.sqlite
+database = mysql+pymysql://beo_backend:secretpassword@localhost/beo_backend_invitations?charset=utf8
 invite_import = 'id','uuid','email','code','status','sent','lastchange'
 invite_subject = 'Invitation Code'
 invite_body = "Dear member,\nYou're welcome to sign up for Televotia.\nPlease use the following personal link to sign up\n<%s>\nWarning: Do not forward or show this message to anyone else.\nOtherwise someone else sign up in your name with this link.\nThank you"
