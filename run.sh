@@ -28,7 +28,10 @@ while :
 do
 	echo "Exporting members..."
 	touch /data/memberlist
-	cd /python-civi && python export_members.py /data/reset > /tmp/members.csv
+	cd /python-civi && python export_members.py /data/reset /tmp/gpg > /tmp/members.csv
+
+	echo "Import gpg keys..."
+	gpg --homedir /data/gnupg/ --import /tmp/gpg/*
 
 	echo "Departments members..."
 	cd /python-civi && python export_departments.py > /tmp/departments.csv

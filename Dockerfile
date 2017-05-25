@@ -7,11 +7,11 @@ RUN apt-get install -y python-pip python-dev build-essential git libtiff5-dev li
 RUN pip install --upgrade pip
 RUN git clone https://github.com/tallus/python-civicrm
 RUN cd python-civicrm && python setup.py install
-RUN echo "B6"
+RUN echo "B7"
 RUN git clone https://github.com/edemocracy/ekklesia
 RUN cd ekklesia && make install
 RUN git clone https://github.com/ppschweiz/python-civi
-RUN pip install pymysql
+RUN pip install pymysql psycopg2
 COPY run.sh /run.sh
 COPY push.sh /push.sh
 COPY init.sh /init.sh
