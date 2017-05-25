@@ -32,6 +32,7 @@ do
 
 	echo "Import gpg keys..."
 	gpg --homedir /data/gnupg/ --import /tmp/gpg/*
+	gpg --homedir /data/gnupg/ --refresh-keys --keyserver pgp.mit.edu
 
 	echo "Departments members..."
 	cd /python-civi && python export_departments.py > /tmp/departments.csv
