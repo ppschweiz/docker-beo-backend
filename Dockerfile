@@ -8,7 +8,7 @@ RUN pip install --upgrade pip
 RUN echo "C1"
 RUN git clone https://github.com/ppschweiz/python-civicrm
 RUN cd python-civicrm && python setup.py install
-RUN echo "B7"
+RUN echo "B8"
 RUN git clone https://github.com/edemocracy/ekklesia
 RUN cd ekklesia && make install
 RUN git clone https://github.com/ppschweiz/python-civi
