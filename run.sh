@@ -28,14 +28,14 @@ while :
 do
 	echo "Exporting members..."
 	touch /data/memberlist
-	cd /python-civi && python export_members.py /data/reset /tmp/gpg > /tmp/members.csv
+	cd /python-civi && python3 export_members.py /data/reset /tmp/gpg > /tmp/members.csv
 
 	echo "Import gpg keys..."
 	gpg --homedir /data/gnupg/ --import /tmp/gpg/*
 	gpg --homedir /data/gnupg/ --refresh-keys --keyserver pgp.mit.edu
 
 	echo "Departments members..."
-	cd /python-civi && python export_departments.py > /tmp/departments.csv
+	cd /python-civi && python3 export_departments.py > /tmp/departments.csv
 
 	echo "Importing members and departments..."
 	env PYTHONPATH=/ekklesia python -m ekklesia.backends.members -C /data/ekklesia.ini -v import -s /tmp/members.csv /tmp/departments.csv
