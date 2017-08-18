@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#while true; do echo "..."; sleep 10; done
+
 echo "Backend starting..."
 
 if [ ! -f "/data/ekklesia.ini" ]

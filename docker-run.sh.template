@@ -1,0 +1,18 @@
+#!/bin/bash
+
+docker stop beo-backend
+docker rm beo-backend
+docker run -d \
+	--name beo-backend \
+	-v /srv/beo-backend-files:/data \
+	-e CIVI_API_URL="https://civicrm.url/wp-content/plugins/civicrm/civicrm/extern/rest.php" \
+	-e CIVI_SITE_KEY="secret" \
+	-e CIVI_API_KEY="secret" \
+	-e  SMTP_SERVER_ADDRESS="mailserver.url" \
+	-e SMTP_SERVER_PORT="587" \
+	-e SMTP_USERNAME="user@mailserver.url" \
+	-e SMTP_PASSWORD="secret" \
+	beo-backend \
+	$1
+
+
