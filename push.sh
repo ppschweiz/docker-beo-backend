@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source static.sh
+
 echo "Backend starting..."
 
 echo "Waiting for rabbitmq..."

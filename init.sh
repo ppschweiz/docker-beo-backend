@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source static.sh
+
 echo "Backend starting..."
 
 if [ ! -f "/data/ekklesia.ini" ]
