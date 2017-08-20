@@ -4,11 +4,10 @@
 
 echo "Backend starting..."
 
-if [ ! -f "/data/ekklesia.ini" ]
-then
-  echo "ekklesia.ini not found; copying template..."
-  cp /ekklesia.ini.template /data/ekklesia.ini
-fi
+# Substitute configuration
+for VARIABLE in `env | cut -f1 -d=`; do
+  sed -i "s={{ $VARIABLE }}=${!VARIABLE}=g" /ekklesia.ini
+done
 
 while :
 do
@@ -24,33 +23,33 @@ do
 	cd /python-civi && python3 export_departments.py > /tmp/departments.csv
 
 	echo "Importing members and departments..."
-	env PYTHONPATH=/ekklesia python -m ekklesia.backends.members -C /data/ekklesia.ini -v import -s /tmp/members.csv /tmp/departments.csv
+	env PYTHONPATH=/ekklesia python -m ekklesia.backends.members -C /ekklesia.ini -v import -s /tmp/members.csv /tmp/departments.csv
 
 	echo "Exporting members for transfer..."
-	env PYTHONPATH=/ekklesia python -m ekklesia.backends.members -C /data/ekklesia.ini -v export /tmp/transfer.csv
+	env PYTHONPATH=/ekklesia python -m ekklesia.backends.members -C /ekklesia.ini -v export /tmp/transfer.csv
 
 	echo "Importing invitations..."
-	env PYTHONPATH=/ekklesia python -m ekklesia.backends.invitations -C /data/ekklesia.ini -v import -s /tmp/transfer.csv
+	env PYTHONPATH=/ekklesia python -m ekklesia.backends.invitations -C /ekklesia.ini -v import -s /tmp/transfer.csv
 	
 	echo "Resetting invitations..."
-	env PYTHONPATH=/ekklesia python -m ekklesia.backends.invitations -C /data/ekklesia.ini -v reset -u /tmp/reset
+	env PYTHONPATH=/ekklesia python -m ekklesia.backends.invitations -C /ekklesia.ini -v reset -u /tmp/reset
 	rm /tmp/reset
 	touch /tmp/reset
 
 	echo "Syncing invitations..."
-	env PYTHONPATH=/ekklesia python -m ekklesia.backends.invitations -C /data/ekklesia.ini -v sync
+	env PYTHONPATH=/ekklesia python -m ekklesia.backends.invitations -C /ekklesia.ini -v sync
 
 	echo "Syncing members..."
-	env PYTHONPATH=/ekklesia python -m ekklesia.backends.members -C /data/ekklesia.ini -v sync
+	env PYTHONPATH=/ekklesia python -m ekklesia.backends.members -C /ekklesia.ini -v sync
 
 	echo "Sending invitations..."
-	env PYTHONPATH=/ekklesia python -m ekklesia.backends.invitations -C /data/ekklesia.ini -v send
+	env PYTHONPATH=/ekklesia python -m ekklesia.backends.invitations -C /ekklesia.ini -v send
 	
 	echo "Syncing invitations..."
-	env PYTHONPATH=/ekklesia python -m ekklesia.backends.invitations -C /data/ekklesia.ini -v sync
+	env PYTHONPATH=/ekklesia python -m ekklesia.backends.invitations -C /ekklesia.ini -v sync
 
 	echo "Syncing members..."
-	env PYTHONPATH=/ekklesia python -m ekklesia.backends.members -C /data/ekklesia.ini -v sync
+	env PYTHONPATH=/ekklesia python -m ekklesia.backends.members -C /ekklesia.ini -v sync
 
 	echo "Round finished. Waiting 15 minutes..."
 	sleep 300
