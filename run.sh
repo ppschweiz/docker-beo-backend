@@ -7,6 +7,7 @@ echo $GPG_PRIVATEKEY >/tmp/gpg.private
 gpg --import /tmp/gpg.private
 rm /tmp/gpg.private
 
+mkdir -p /secrets
 echo "export SSL-CERT"
 echo $MEMBER_API_CERT >/secrets/client-x509-certificate.crt
 
