@@ -3,16 +3,7 @@
 #while true; do echo "..."; sleep 10; done
 
 echo "importing private GPG-Key"
-echo $GPG_PRIVATEKEY >/tmp/gpg.private
-gpg --import /tmp/gpg.private
-rm /tmp/gpg.private
-
-mkdir -p /secrets
-echo "export SSL-CERT"
-echo $MEMBER_API_CERT >/secrets/client-x509-certificate.crt
-
-echo "export SSL-KEY"
-echo $MEMBER_API_CERT_SECRET >/secrets/client-x509-certificate.key
+gpg --import /secrets/gpg.priv
 
 echo "Backend starting..."
 
