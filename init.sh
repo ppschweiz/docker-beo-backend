@@ -2,15 +2,15 @@
 
 echo "Backend starting..."
 
-if [ ! -f "/data/ekklesia.ini" ]
+if [ ! -f "/ekklesia.ini" ]
 then
   echo "ekklesia.ini not found; copying template..."
-  cp /ekklesia.ini.template /data/ekklesia.ini
+  cp /ekklesia.ini.template /ekklesia.ini
 fi
 
 echo "initializing members database..."
-env PYTHONPATH=/ekklesia python -m ekklesia.backends.members -C /data/ekklesia.ini init
+env PYTHONPATH=/ekklesia python -m ekklesia.backends.members -C /ekklesia.ini init
 
 echo "initializing inivitations database..."
-env PYTHONPATH=/ekklesia python -m ekklesia.backends.invitations -C /data/ekklesia.ini init
+env PYTHONPATH=/ekklesia python -m ekklesia.backends.invitations -C /ekklesia.ini init
 
