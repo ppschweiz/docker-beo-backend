@@ -17,6 +17,6 @@ RUN pip install pymysql psycopg2
 COPY run.sh /run.sh
 COPY push.sh /push.sh
 COPY init.sh /init.sh
-COPY ekklesia.ini.template /ekklesia.ini
+COPY ekklesia.ini /ekklesia.ini
 CMD ["/run.sh"]
 
