@@ -9,7 +9,7 @@ RUN echo "C1"
 RUN git clone https://github.com/ppschweiz/python-civicrm
 RUN cd python-civicrm && python3 setup.py install
 RUN echo "B10"
-RUN git clone https://github.com/edemocracy/ekklesia && cd ekklesia && git reset --hard 2f55224885429c3be68d83ef4a5d5b98a85c43f6
+RUN git clone -b 17.04 https://github.com/ppschweiz/ekklesia.git 17.04
 RUN cd ekklesia && make install
 RUN git clone https://github.com/ppschweiz/python-civi
 RUN pip install pymysql psycopg2
