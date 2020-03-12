@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
       with:
-        fetch-depth: 1 
+        fetch-depth: 1
 
     - name: Cleanup
       run: docker system prune --all --force --volumes
