@@ -6,8 +6,8 @@ echo "Backend starting..."
 
 if [ ! -f "/ekklesia.ini" ]
 then
-  echo "ekklesia.ini not found; copying template..."
-  cp /ekklesia.ini.template /ekklesia.ini
+	echo "ekklesia.ini not found; copying template..."
+	cp /ekklesia.ini.template /ekklesia.ini
 fi
 
 echo "initializing members database..."

@@ -98,4 +98,3 @@ then
 	echo "Syncing members with backend FAILED"
 	exit 11
 fi
-
